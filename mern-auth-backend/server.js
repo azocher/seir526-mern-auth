@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const port = process.env.PORT || 5000;
+const cors = require('cors')
 
 // Require Routes
 const users = require('./routes/api/users');
@@ -11,12 +12,7 @@ const users = require('./routes/api/users');
 const app = express();
 
 // Cors Middleware
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-  res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE");
-  next();
-});
+app.use(cors())
 
 // BodyParser Middleware
 app.use(express.urlencoded({extended: false}));
