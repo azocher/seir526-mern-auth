@@ -4,8 +4,9 @@ import jwt_decode from 'jwt-decode';
 import setAuthToken from '../utils/setAuthToken';
 import { Redirect } from 'react-router-dom'
 
-
 const Login = (props) => {
+  console.log('💔')
+  console.log(props)
   let [email, setEmail] = useState('')
   let [password, setPassword] = useState('')
 
@@ -38,7 +39,7 @@ const Login = (props) => {
       .catch(err => console.log(err));
   }
 
-  //if (props.user !== undefined) return <Redirect to="/profile" user={props.user} />
+  if (props.user) return <Redirect to="/profile" user={props.user} />
 
   return (
       <div className="row mt-4">
