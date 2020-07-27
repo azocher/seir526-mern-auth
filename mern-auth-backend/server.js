@@ -1,7 +1,6 @@
 require("dotenv").config()
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 const passport = require('passport');
 const port = process.env.PORT || 5000;
 
@@ -20,8 +19,8 @@ app.use(function(req, res, next) {
 });
 
 // BodyParser Middleware
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
 
 // DB Config
 const db = process.env.MONGODB_URI

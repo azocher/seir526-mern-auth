@@ -17,4 +17,6 @@ Download or clone this repo. From inside the project directory, open Terminal an
 npm install
 ```
 
+Create a `.env.local` file and add `REACT_APP_SERVER_URL=<YOUR SERVER URL>`
+
 ### Happy Coding...!!!

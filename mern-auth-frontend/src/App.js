@@ -11,11 +11,12 @@ import Login from './components/Login';
 import Profile from './components/Profile';
 import './App.css';
 
-const PrivateRoute = ({ component: Component, props, ...rest }) => {
+const PrivateRoute = ({ component: Component, ...rest }) => {
+
   const user = localStorage.getItem(`jwtToken`);
   return <Route {...rest} render={(props) => (
-      user !== null
-          ? <Component {...props} />
+      user
+          ? <Component {...rest} {...props} />
           : <Redirect to='/login' />
       )} 
   />
